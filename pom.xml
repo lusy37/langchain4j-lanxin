@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.github.lusy37</groupId>
     <artifactId>langchain4j-vivo-lanxin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>Lanxin for LangChain4j</name>
     <description>LangChain4j integration for vivo BlueLM (蓝心大模型) - Seamless integration of vivo's BlueLM into LangChain4j ecosystem</description>
     <url>https://github.com/lusy37/langchain4j-lanxin</url>
@@ -92,7 +92,7 @@
     </dependencies>
 
 
-        <!-- 加载bom 后，所有langchain4j引用不需要加版本号 -->
+    <!-- 加载bom 后，所有langchain4j引用不需要加版本号 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -115,20 +115,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                    <!-- 移除classifier，让JitPack生成正确的库JAR -->
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -1,33 +1,46 @@
-
 server:
   port: 8081
 
-# LanXin 配置
+# LanXin 配置 - JitPack测试
 langchain4j:
   vivo-lanxin:
     enabled: true
     app-id: your-app-id
     app-key: your-secret-key
-    base-url: https://api.vivo.com.cn/vivogpt/completions
-    temperature: 0.7
-    max-output-tokens: 2048
-    top-p: 0.9
-    top-k: 50
-    model-name: vivo-BlueLM-TB
-    model-version: "1.0"
-    provider: vivo
-    features:
-      - text-generation
-      - conversation
-    timeout: 30s
-    max-retries: 3
-    log-requests: true
-    log-responses: false
+    domain: api-ai.vivo.com.cn
+    uri: /vivogpt/completions
+    method: POST
+    model-name: vivo-BlueLM-V-2.0
+    stream-uri: /vivogpt/completions/stream
+
+    # 模型参数配置
+    model:
+      temperature: 0.7
+      max-output-tokens: 2048
+      max-input-tokens: 8192
+
+    # 模型信息配置
+    info:
+      provider: vivo
+      display-name: vivo 蓝心大模型 (JitPack版本)
+      version: "1.0"
+      features:
+        - chat
+        - streaming
+        - multi-turn
+
+    # 线程池配置
+    thread-pool:
+      core-pool-size: 2
+      maximum-pool-size: 10
+      queue-capacity: 100
+      keep-alive-time: 660
 
 # 日志配置
 logging:
   level:
-    ink.lusy.langchain4j.lanxin: DEBUG
+    ink.lusy.lanxinmodel: DEBUG
+    com.github.lusy37: DEBUG
     root: INFO
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

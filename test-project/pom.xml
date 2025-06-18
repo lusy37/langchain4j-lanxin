@@ -18,18 +18,27 @@
         <java.version>17</java.version>
     </properties>
 
+    <!-- JitPack仓库配置 -->
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- Spring Boot Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
         </dependency>
-        
-        <!-- LanXin LangChain4j Integration -->
+
+        <!-- 测试现有的JitPack v1.0.0版本 -->
         <dependency>
-            <groupId>ink.lusy</groupId>
-            <artifactId>langchain4j-vivo-lanxin</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>com.github.lusy37</groupId>
+            <artifactId>langchain4j-lanxin</artifactId>
+            <version>v1.0.1</version>
         </dependency>
 
         <!-- Test Dependencies -->

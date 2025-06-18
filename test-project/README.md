@@ -17,11 +17,10 @@
     </repository>
 </repositories>
 
-        <!-- 添加您的依赖 -->
 <dependency>
 <groupId>com.github.lusy37</groupId>
 <artifactId>langchain4j-lanxin</artifactId>
-<version>v1.0.0</version>
+<version>v1.0.1</version>
 </dependency>
 ```
 
