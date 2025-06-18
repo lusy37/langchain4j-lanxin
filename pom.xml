@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.github.lusy37</groupId>
+    <artifactId>langchain4j-vivo-lanxin</artifactId>
+    <version>1.0.0</version>
+    <name>Lanxin for LangChain4j</name>
+    <description>LangChain4j integration for vivo BlueLM (蓝心大模型) - Seamless integration of vivo's BlueLM into LangChain4j ecosystem</description>
+    <url>https://github.com/lusy37/langchain4j-lanxin</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>lusy</id>
+            <name>Lusy</name>
+            <email>luziqiang333@gmail.com</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/lusy37/langchain4j-lanxin.git</connection>
+        <developerConnection>scm:git:ssh://github.com:lusy37/langchain4j-lanxin.git</developerConnection>
+        <url>https://github.com/lusy37/langchain4j-lanxin/tree/main</url>
+    </scm>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <lombok.version>1.18.30</lombok.version>
+        <langchain4j.version>1.0.0-beta2</langchain4j.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-open-ai</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.11</version>
+        </dependency>
+
+        <!-- 测试依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+        <!-- 加载bom 后，所有langchain4j引用不需要加版本号 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>dev.langchain4j</groupId>
+                <artifactId>langchain4j-bom</artifactId>
+                <version>1.0.0-beta2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>dev.langchain4j</groupId>
+                <artifactId>langchain4j-community-bom</artifactId>
+                <version>1.0.0-beta2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                    <!-- 移除classifier，让JitPack生成正确的库JAR -->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <!-- 源码插件 - JitPack需要 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Javadoc插件 - JitPack需要 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <configuration>
+                    <source>17</source>
+                    <doclint>none</doclint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

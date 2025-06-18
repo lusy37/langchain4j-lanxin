@@ -1,0 +1,156 @@
+{
+  "groups": [
+    {
+      "name": "langchain4j.vivo-lanxin",
+      "type": "ink.lusy.lanxinmodel.properties.LanXinProperties",
+      "description": "Configuration properties for LangChain4j vivo LanXin integration."
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.model",
+      "type": "ink.lusy.lanxinmodel.properties.LanXinProperties$ModelConfig",
+      "description": "Model parameters configuration for vivo LanXin."
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool",
+      "type": "ink.lusy.lanxinmodel.properties.LanXinProperties$ThreadPoolConfig",
+      "description": "Thread pool configuration for streaming chat model."
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.info",
+      "type": "ink.lusy.lanxinmodel.properties.LanXinProperties$ModelInfo",
+      "description": "Model information configuration for vivo LanXin."
+    }
+  ],
+  "properties": [
+    {
+      "name": "langchain4j.vivo-lanxin.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable vivo LanXin integration.",
+      "defaultValue": true
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.app-id",
+      "type": "java.lang.String",
+      "description": "vivo developer platform application ID."
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.app-key",
+      "type": "java.lang.String",
+      "description": "vivo developer platform application key."
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.model-name",
+      "type": "java.lang.String",
+      "description": "The name of the vivo LanXin model to use.",
+      "defaultValue": "vivo-BlueLM-V-2.0"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.domain",
+      "type": "java.lang.String",
+      "description": "API domain for vivo LanXin service.",
+      "defaultValue": "api-ai.vivo.com.cn"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.uri",
+      "type": "java.lang.String",
+      "description": "API URI for chat completions.",
+      "defaultValue": "/vivogpt/completions"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.stream-uri",
+      "type": "java.lang.String",
+      "description": "API URI for streaming chat completions.",
+      "defaultValue": "/vivogpt/completions/stream"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.method",
+      "type": "java.lang.String",
+      "description": "HTTP method for API requests.",
+      "defaultValue": "POST"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.model.temperature",
+      "type": "java.lang.Double",
+      "description": "Controls randomness in the model's output. Higher values make output more random.",
+      "defaultValue": 0.7
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.model.max-output-tokens",
+      "type": "java.lang.Integer",
+      "description": "Maximum number of tokens to generate in the response.",
+      "defaultValue": 4096
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.model.max-input-tokens",
+      "type": "java.lang.Integer",
+      "description": "Maximum number of tokens in the input.",
+      "defaultValue": 8192
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.core-pool-size",
+      "type": "java.lang.Integer",
+      "description": "Core number of threads in the streaming thread pool.",
+      "defaultValue": 2
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.maximum-pool-size",
+      "type": "java.lang.Integer",
+      "description": "Maximum number of threads in the streaming thread pool.",
+      "defaultValue": 10
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.keep-alive-time",
+      "type": "java.lang.Long",
+      "description": "Time in seconds that excess idle threads will wait for new tasks before terminating.",
+      "defaultValue": 60
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.queue-capacity",
+      "type": "java.lang.Integer",
+      "description": "Capacity of the thread pool's task queue.",
+      "defaultValue": 100
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.thread-name-prefix",
+      "type": "java.lang.String",
+      "description": "Prefix for thread names in the streaming thread pool.",
+      "defaultValue": "vivo-lanxin-streaming-"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.allow-core-thread-time-out",
+      "type": "java.lang.Boolean",
+      "description": "Whether core threads are allowed to time out.",
+      "defaultValue": false
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.thread-pool.rejected-execution-handler",
+      "type": "java.lang.String",
+      "description": "Policy for handling rejected tasks. Options: ABORT, CALLER_RUNS, DISCARD, DISCARD_OLDEST.",
+      "defaultValue": "CALLER_RUNS"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.info.provider",
+      "type": "java.lang.String",
+      "description": "Model provider name.",
+      "defaultValue": "vivo"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.info.display-name",
+      "type": "java.lang.String",
+      "description": "Model display name.",
+      "defaultValue": "vivo 蓝心大模型"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.info.version",
+      "type": "java.lang.String",
+      "description": "Model version.",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "name": "langchain4j.vivo-lanxin.info.features",
+      "type": "java.util.List<java.lang.String>",
+      "description": "List of supported features.",
+      "defaultValue": ["chat", "streaming", "multi-turn"]
+    }
+  ]
+}

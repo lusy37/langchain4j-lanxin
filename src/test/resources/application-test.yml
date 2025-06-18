@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: langchain4j-vivo-bluelm-test
+
+langchain4j:
+  vivo-lanxin:
+    enabled: true
+    app-id: test-app-id
+    app-key: test-app-key
+    uri: /vivogpt/completions
+    domain: api-ai.vivo.com.cn
+    method: POST
+    model-name: vivo-BlueLM-V-2.0
+    stream-uri: /vivogpt/completions/stream
+
+logging:
+  level:
+    ink.lusy.lanxinmodel: DEBUG
+    root: INFO

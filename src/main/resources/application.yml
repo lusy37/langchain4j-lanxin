@@ -1,0 +1,47 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 1GB
+  application:
+    name: langchain4j-vivo-bluelm
+
+
+langchain4j:
+  vivo-lanxin:
+    enabled: true                        # 启用 vivo LanXin 集成
+    app-id: your-app-id
+    app-key: your-secret-key
+    uri: /vivogpt/completions
+    domain: api-ai.vivo.com.cn
+    method: POST
+    model-name: vivo-BlueLM-V-2.0
+    stream-uri: /vivogpt/completions/stream
+
+    # 模型参数配置
+    model:
+      temperature: 0.7                   # 温度参数 (0.0-1.0)
+      max-output-tokens: 4096            # 最大输出token数
+      max-input-tokens: 8192             # 最大输入token数
+
+    # 模型信息配置
+    info:
+      provider: vivo                     # 模型提供商
+      display-name: vivo 蓝心大模型       # 模型显示名称
+      version: 2.0                       # 模型版本
+      features:                          # 支持的功能
+        - chat
+        - streaming
+        - multi-turn
+
+    # 线程池配置
+    thread-pool:
+      core-pool-size: 2                  # 核心线程数
+      maximum-pool-size: 10              # 最大线程数
+      keep-alive-time: 60                # 线程空闲时间（秒）
+      queue-capacity: 100                # 队列容量
+      thread-name-prefix: "vivo-lanxin-streaming-"  # 线程名称前缀
+      allow-core-thread-time-out: false  # 是否允许核心线程超时
+      rejected-execution-handler: "CALLER_RUNS"  # 拒绝策略
+
+

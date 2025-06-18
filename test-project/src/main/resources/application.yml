@@ -1,0 +1,33 @@
+
+server:
+  port: 8081
+
+# LanXin 配置
+langchain4j:
+  vivo-lanxin:
+    enabled: true
+    app-id: your-app-id
+    app-key: your-secret-key
+    base-url: https://api.vivo.com.cn/vivogpt/completions
+    temperature: 0.7
+    max-output-tokens: 2048
+    top-p: 0.9
+    top-k: 50
+    model-name: vivo-BlueLM-TB
+    model-version: "1.0"
+    provider: vivo
+    features:
+      - text-generation
+      - conversation
+    timeout: 30s
+    max-retries: 3
+    log-requests: true
+    log-responses: false
+
+# 日志配置
+logging:
+  level:
+    ink.lusy.langchain4j.lanxin: DEBUG
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
